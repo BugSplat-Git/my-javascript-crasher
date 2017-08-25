@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <title>MyJavaScriptCrasher</title>
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                const bugsplatDatabaseName = "fred";
+                const postUrl = "https://" + bugsplatDatabaseName + ".bugsplat.com/post/js/";
+                const error = new Error("foobar!");
+                const data = {};
+
+                // Required
+                data.database = bugsplatDatabaseName;
+                data.appName = "MyJavaScriptCrasher";
+                data.appVersion = "1.0.0.0";
+
+                // Optional
+                data.appKey = "appKey";
+                data.user = "fred";
+                data.email = "fred@bedrock.com";
+                data.description = "description";
+                data.callstack = error.stack;
+
+                console.log("About to POST to BugSplat!");
+
+                jQuery.ajax({
+                    async: true,
+                    crossDomain: true,
+                    url: postUrl,
+                    method: 'POST',
+                    headers: {
+                        "content-type": "application/x-www-form-urlencoded"
+                    },
+                    data: data,
+                    success: function (data) {
+                        console.log("BugSplat POST success:", data);
+                    },
+                    error: function (data) {
+                        console.log("BugSplat POST error:", data);
+                    }
+                });
+            });
+        });
+    </script>
+    <img src="https://s3.amazonaws.com/bugsplat-public/npm/header.png" />
+    <br/>
+    <button>Send Crash Report</button>
+</body>
+
+</html>
