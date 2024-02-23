@@ -1,15 +1,86 @@
-[![BugSplat](https://s3.amazonaws.com/bugsplat-public/npm/header.png)](https://www.bugsplat.com)
-## MyJavaScriptCrasher
-This repo is an example of how to use BugSplat's REST API to post error objects from client-side JavaScript.
-1. Clone this repository or download the zip from the releases tab
-2. Open bugsplat.html with a web browser (Chrome, Firefox, Edge etc)
-3. Click the "Send Crash Report" button to post a crash report to BugSplat
-4. Navigate to BugSplat's [AllCrash](https://www.bugsplat.com/allcrash) page in your web browser
-5. When prompted to log in, use the username "Fred" and password "Flintstone"
-6. Click the ID of your crash to see crash details
+[![bugsplat-github-banner-basic-outline](https://user-images.githubusercontent.com/20464226/149019306-3186103c-5315-4dad-a499-4fd1df408475.png)](https://bugsplat.com)
+<br/>
+# <div align="center">BugSplat</div> 
+### **<div align="center">Crash and error reporting built for web developers.</div>**
+<div align="center">
+    <a href="https://twitter.com/BugSplatCo">
+        <img alt="Follow @bugsplatco on Twitter" src="https://img.shields.io/twitter/follow/bugsplatco?label=Follow%20BugSplat&style=social">
+    </a>
+    <a href="https://discord.gg/K4KjjRV5ve">
+        <img alt="Join BugSplat on Discord" src="https://img.shields.io/discord/664965194799251487?label=Join%20Discord&logo=Discord&style=social">
+    </a>
+</div>
 
-For additional help, check out the [documentation](http://www.bugsplat.com/documents/) on our website or email support(at)bugsplat.com if you have any questions.
+# my-javascript-crasher
 
-Good luck!
-© BugSplat Software
-[Web](https://www.bugsplat.com) | [Twitter](https://twitter.com/BugSplatCo) | [Facebook](https://www.facebook.com/bugsplatsoftware/)
+This sample project demonstrates how to use the [bugsplat](https://github.com/BugSplat-Git/bugsplat-js) package to report JavaScript errors in web applications. Before continuing with the tutorial please make sure you have completed the following checklist:
+
+* [Sign Up](https://app.bugsplat.com/v2/sign-up) as a new BugSplat user.
+* [Log In](https://app.bugsplat.com/cognito/login) using your email address.
+
+## ⚙️ Integrating
+
+Import [bugsplat](https://github.com/BugSplat-Git/bugsplat-js) from [esm.sh](https://esm.sh)
+
+```html
+<script type="module">
+    import { BugSplat } from 'https://esm.sh/bugsplat@8.0.1';
+</script>
+```
+
+Create a new instance of BugSplat with your database, application, and version
+
+```javascript
+const bugsplat = new BugSplat('fred', 'my-javascript-crasher', '1.0.0');
+```
+
+Configure bugsplat to listen to `window.onerror` and `window.onunhandledrejection` events
+
+```javascript
+window.onerror = function (message, source, lineno, colno, error) {
+    bugsplat.post(error);
+};
+
+window.addEventListener('unhandledrejection', function (event) {
+    bugsplat.post(event.reason);
+});
+```
+
+Trigger an error to see it reported in BugSplat
+
+```javascript
+throw new Error('todo bg');
+```
+
+## 🧪 Sample
+
+Clone the [my-javascript-crasher](https://github.com/BugSplat-Git/my-javascript-crasher) repository
+
+```sh
+git clone https://github.com/BugSplat-Git/my-javascript-crasher
+```
+
+Install the dependencies
+
+```sh
+cd my-javascript-crasher
+npm i
+```
+
+Start the server
+
+```sh
+npm start
+```
+
+Open your browser and navigate to [http://localhost:8080](http://localhost:8080), then click the button to trigger an error.
+
+## 📈 Viewing Reports
+
+Navigate to the BugSplat [Crashes](https://app.bugsplat.com/v2/crashes?database=Fred&c0=appName&f0=CONTAINS&v0=my-javascript-crasher) page to view your report.
+
+TODO BG image
+
+Click on the ID of the most recent error to view the details of your report.
+
+TODO BG image
