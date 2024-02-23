@@ -79,9 +79,10 @@ Open your browser and navigate to [http://localhost:8080](http://localhost:8080)
 
 Navigate to the BugSplat [Crashes](https://app.bugsplat.com/v2/crashes?database=Fred&c0=appName&f0=CONTAINS&v0=my-javascript-crasher) page to view your report.
 
-![Crashes page](https://github.com/BugSplat-Git/my-javascript-crasher/assets/2646053/2800e416-df71-4e52-a582-57b2b7b0acd9)
+![Crashes page](https://github.com/BugSplat-Git/my-javascript-crasher/assets/2646053/af6950bb-530b-42da-8679-47f220f08a40)
 
 Click on the ID of the most recent error to view the details of your report.
 
-![Crash page](https://github.com/BugSplat-Git/my-javascript-crasher/assets/2646053/00e6a3fb-fd15-4c40-8001-299b4169be55)
+![Crash page](https://github.com/BugSplat-Git/my-javascript-crasher/assets/2646053/acc8fa5c-b93e-4037-a72e-ea39f3437b8e)
+
 
