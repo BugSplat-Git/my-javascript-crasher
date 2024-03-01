@@ -1,0 +1,23 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    concurrency: cd-${{ github.ref }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy My JavaScript Crasher 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          repository-name: BugSplat-Git/bugsplat-git.github.io
+          branch: gh-pages
+          folder: ./
+          target-folder: my-javascript-crasher
+          token: ${{ secrets.GH_TOKEN }}
