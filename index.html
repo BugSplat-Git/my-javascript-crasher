@@ -97,24 +97,18 @@
         </p>
         <div class="errors">
           <h2>Errors</h2>
-          <ng-container *ngFor="let err of errors">
-            <button id="throw" class="error">
-              <h2>Error</h2>
-              <h4>Throw an arbitrary error</h4>
-            </button>
-            <button id="range" class="error"">
-              <h2>Range Error</h2>
-              <h4>Access an index that's out of range</h4>
-            </button>
-            <button id="type" class="error"">
-              <h2>Type Error</h2>
-              <h4>Call a function that doesn't exist</h4>
-            </button>
-            <button id="rejection" class="error"">
-              <h2>Unhandled Rejection</h2>
-              <h4>Reject a promise without a catch</h4>
-            </button>
-          </ng-container>
+          <button id="throw" class="error">
+            <h2>Error</h2>
+            <h4>Throw an arbitrary error</h4>
+          </button>
+          <button id="type" class="error">
+            <h2>Type Error</h2>
+            <h4>Call a function that doesn't exist</h4>
+          </button>
+          <button id="rejection" class="error">
+            <h2>Unhandled Rejection</h2>
+            <h4>Reject a promise without a catch</h4>
+          </button>
         </div>
       </div>
     </div>
