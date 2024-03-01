@@ -20,8 +20,6 @@
             const id = event.target.id;
             if (id === 'throw') {
               throwStackFrame0();
-            } else if (id === 'range') {
-              rangeStackFrame0();
             } else if (id === 'type') {
               typeStackFrame0();
             } else if (id === 'rejection') {
@@ -41,19 +39,6 @@
 
       function throwStackFrame2() {
         throw new Error('This is an arbitrary error!');
-      }
-      
-      function rangeStackFrame0() {
-        rangeStackFrame1();
-      }
-
-      function rangeStackFrame1() {
-        rangeStackFrame2();
-      }
-
-      function rangeStackFrame2() {
-        const arr = [1, 2, 3];
-        console.log(arr[4]);
       }
 
       function typeStackFrame0() {
