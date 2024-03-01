@@ -20,8 +20,6 @@
             const id = event.target.id;
             if (id === 'throw') {
               throwStackFrame0();
-            } else if (id === 'range') {
-              rangeStackFrame0();
             } else if (id === 'type') {
               typeStackFrame0();
             } else if (id === 'rejection') {
@@ -41,19 +39,6 @@
 
       function throwStackFrame2() {
         throw new Error('This is an arbitrary error!');
-      }
-      
-      function rangeStackFrame0() {
-        rangeStackFrame1();
-      }
-
-      function rangeStackFrame1() {
-        rangeStackFrame2();
-      }
-
-      function rangeStackFrame2() {
-        const arr = [1, 2, 3];
-        console.log(arr[4]);
       }
 
       function typeStackFrame0() {
@@ -78,7 +63,7 @@
       }
 
       async function rejectionStackFrame2() {
-        throw new Error('This is an unhandled rejection!')
+        throw new Error('This is an unhandled rejection!');
       }
     </script>
   </head>
@@ -97,24 +82,18 @@
         </p>
         <div class="errors">
           <h2>Errors</h2>
-          <ng-container *ngFor="let err of errors">
-            <button id="throw" class="error">
-              <h2>Error</h2>
-              <h4>Throw an arbitrary error</h4>
-            </button>
-            <button id="range" class="error"">
-              <h2>Range Error</h2>
-              <h4>Access an index that's out of range</h4>
-            </button>
-            <button id="type" class="error"">
-              <h2>Type Error</h2>
-              <h4>Call a function that doesn't exist</h4>
-            </button>
-            <button id="rejection" class="error"">
-              <h2>Unhandled Rejection</h2>
-              <h4>Reject a promise without a catch</h4>
-            </button>
-          </ng-container>
+          <button id="throw" class="error">
+            <h2>Error</h2>
+            <h4>Throw an arbitrary error</h4>
+          </button>
+          <button id="type" class="error">
+            <h2>Type Error</h2>
+            <h4>Call a function that doesn't exist</h4>
+          </button>
+          <button id="rejection" class="error">
+            <h2>Unhandled Rejection</h2>
+            <h4>Reject a promise without a catch</h4>
+          </button>
         </div>
       </div>
     </div>
