@@ -24,7 +24,7 @@ Import [bugsplat](https://github.com/BugSplat-Git/bugsplat-js) from [esm.sh](htt
 
 ```html
 <script type="module">
-    import { BugSplat } from 'https://esm.sh/bugsplat@8.0.1';
+    import { BugSplat } from 'https://esm.sh/bugsplat@9.2.0';
 </script>
 ```
 
@@ -74,6 +74,8 @@ npm start
 ```
 
 Open your browser and navigate to [http://localhost:8080](http://localhost:8080), then click the button to trigger an error.
+
+Click **Crash with cause** to throw an error whose `cause` is a `SyntaxError` from `JSON.parse`. The error has a `cause`; bugsplat 9.2.0 posts the whole chain and BugSplat shows each linked error as a `Caused by:` row.
 
 ## 📈 Viewing Reports
 
